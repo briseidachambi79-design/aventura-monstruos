@@ -1,0 +1,38 @@
+:root {
+  --bg: #f0f4ff;
+  --elev: #ffffff;
+  --fg: #1f2333;
+  --muted: #6b7280;
+  --primary: #6366f1;
+  --accent: #10b981;
+  --danger: #ef4444;
+  --warn: #f59e0b;
+  --border: #e5e7eb;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f5f7fb);
+  color: var(--fg); min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 12px;
+}
+.game-wrap { position: relative; width: 100%; max-width: 800px; }
+canvas { width: 100%; height: auto; display: block; border: 2px solid var(--border); border-radius: 14px; background: #1e293b; box-shadow: 0 8px 30px rgba(0,0,0,.12); }
+.hud { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--elev); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; box-shadow: 0 4px 18px rgba(0,0,0,.06); }
+.hud-left { display: flex; gap: 14px; flex-wrap: wrap; }
+.stat { font-size: 14px; color: var(--muted); }
+.stat strong { color: var(--fg); font-size: 16px; }
+.health { display: flex; align-items: center; gap: 8px; }
+.health span { font-size: 13px; color: var(--muted); }
+.health-bar { width: 150px; height: 12px; background: #e5e7eb; border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
+#healthFill { height: 100%; width: 100%; background: linear-gradient(90deg,#10b981,#34d399); transition: width .2s; }
+.btn { padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--elev); color: var(--fg); cursor: pointer; font-weight: 600; font-size: 14px; }
+.btn:hover { filter: brightness(1.05); }
+.btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(15,23,42,.7); backdrop-filter: blur(4px); border-radius: 14px; }
+.overlay.hidden { display: none; }
+.overlay-card { background: var(--elev); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; max-width: 480px; box-shadow: 0 8px 40px rgba(0,0,0,.2); }
+.overlay-card h1 { margin: 0 0 10px; font-size: 26px; }
+.overlay-card p { color: var(--muted); margin: 8px 0; }
+.tips { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.footer { color: var(--muted); font-size: 13px; }
