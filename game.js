@@ -406,8 +406,9 @@ window.addEventListener('mousemove', e => {
   mouse.x = (e.clientX-rect.left)*(W/rect.width);
   mouse.y = (e.clientY-rect.top)*(H/rect.height);
 });
-startBtn.addEventListener('click', ()=>{ ensureAudio(); if (gameState==='menu') resetGame(); });
-retryBtn.addEventListener('click', ()=>{ ensureAudio(); resetGame(); });
+window.resetGame = resetGame;
+startBtn.addEventListener('click', () => { ensureAudio(); if (gameState === 'menu' || gameState === 'gameover') resetGame(); });
+retryBtn.addEventListener('click', () => { ensureAudio(); resetGame(); });
 soundBtn.addEventListener('click', ()=>{ soundOn=!soundOn; soundBtn.textContent=soundOn?'🔊':'🔇'; });
 
 // prevent scrolling

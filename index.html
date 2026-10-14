@@ -32,7 +32,7 @@
       <div class="overlay-card">
         <h1 id="overlayTitle">Aventura de Monstruos</h1>
         <p id="overlayText">Explora la mazmorra: recolecta gemas, evita o combate monstruos y llega a la salida (escalera).</p>
-        <button id="startBtn" class="btn btn-primary">Entrar</button>
+        <button id="startBtn" class="btn btn-primary" onclick="if(window.resetGame) window.resetGame();">Entrar</button>
         <div class="tips">
           <span>WASD / Flechas = mover</span>
           <span>Espacio = atacar</span>
@@ -46,7 +46,7 @@
         <h1 id="endTitle">Fin</h1>
         <p>Puntuación final: <strong id="finalScore">0</strong></p>
         <p>Nivel alcanzado: <strong id="finalLevel">1</strong></p>
-        <button id="retryBtn" class="btn btn-primary">Reintentar</button>
+        <button id="retryBtn" class="btn btn-primary" onclick="if(window.resetGame) window.resetGame();">Reintentar</button>
       </div>
     </div>
   </div>
