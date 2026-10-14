@@ -101,8 +101,8 @@ function generateLevel(lvl) {
     grid[t.y][t.x] = 3;
   }
   // monsters
-  const candidates = et.filter(t=> (t.x>3||t.y>3));
-  const monsterCount = Math.min(candidates.length, 2 + lvl);
+  const candidates = et.filter(t=> (t.x>=5 || t.y>=5));
+  const monsterCount = Math.min(candidates.length, 1 + lvl);
   const picks = [...candidates].sort(()=>Math.random()-0.5).slice(0, monsterCount);
   monsters = picks.map((t, idx) => ({
     x: (t.x+0.5)*TILE, y: (t.y+0.5)*TILE,
@@ -135,11 +135,11 @@ function canMove(px,py,r) {
 function resetGame() {
   score=0; level=1; gemsCount=0; health=3; maxHealth=3;
   monsters=[]; particles=[];
-  player = { x:1.5*TILE, y:1.5*TILE, r:12, speed:150, vx:0, vy:0, dirX:1, dirY:0, attackCd:0 };
+  player = { x:1.5*TILE, y:1.5*TILE, r:12, speed:150, vx:0, vy:0, dirX:1, dirY:0, attackCd:0, invuln:3 };
   generateLevel(level);
   gameState='playing';
   overlay.hidden=true; gameOver.hidden=true;
-  message='Nivel 1: busca la salida.'; messageTimer=2.5;
+  message='Nivel 1: te mueves con WASD/flechas. Invulnerable 3s.'; messageTimer=3.5;
   updateHud();
 }
 
